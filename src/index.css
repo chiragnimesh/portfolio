@@ -1,0 +1,340 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern vibrant dark mode design system with dynamic color palette
+All colors MUST be HSL. */
+
+@layer base {
+  :root {
+    /* Rich dark backgrounds with depth */
+    --background: 222 47% 11%;  /* #0F1729 - deep navy blue */
+    --foreground: 210 40% 98%;  /* #F8FAFC - bright white */
+
+    --card: 217 33% 17%;        /* #1E293B - slate card */
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Vibrant cyan/teal primary */
+    --primary: 189 94% 43%;     /* #06B6D4 - cyan 500 */
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 189 94% 53%; /* lighter for glow */
+
+    /* Purple secondary */
+    --secondary: 271 81% 56%;   /* #A855F7 - purple 500 */
+    --secondary-foreground: 210 40% 98%;
+    --secondary-glow: 271 91% 65%;
+
+    /* Pink/Rose accent */
+    --accent: 348 83% 47%;      /* #EC4899 - pink 500 */
+    --accent-foreground: 210 40% 98%;
+    --accent-glow: 348 83% 57%;
+
+    /* Amber highlight */
+    --highlight: 38 92% 50%;    /* #F59E0B - amber 500 */
+    --highlight-foreground: 222 47% 11%;
+
+    --muted: 215 20% 25%;       /* muted slate */
+    --muted-foreground: 215 16% 70%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 25%;      /* subtle border */
+    --input: 217 33% 17%;       /* input background */
+    --ring: 189 94% 43%;        /* cyan focus ring */
+
+    --radius: 0.75rem;
+
+    /* Advanced gradient tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(189 94% 43%), hsl(271 81% 56%));
+    --gradient-secondary: linear-gradient(135deg, hsl(271 81% 56%), hsl(348 83% 47%));
+    --gradient-accent: linear-gradient(135deg, hsl(348 83% 47%), hsl(38 92% 50%));
+    --gradient-multi: linear-gradient(135deg, hsl(189 94% 43%), hsl(271 81% 56%), hsl(348 83% 47%));
+    
+    /* Glassmorphism */
+    --glass-bg: hsla(217, 33%, 17%, 0.7);
+    --glass-border: hsla(210, 40%, 98%, 0.1);
+    
+    /* Glow effects */
+    --glow-primary: 0 0 30px hsl(189 94% 43% / 0.4);
+    --glow-secondary: 0 0 30px hsl(271 81% 56% / 0.4);
+    --glow-accent: 0 0 30px hsl(348 83% 47% / 0.4);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Light mode theme */
+  .light {
+    /* Light backgrounds */
+    --background: 0 0% 100%;        /* white */
+    --foreground: 222 47% 11%;      /* dark navy text */
+
+    --card: 0 0% 98%;               /* light gray card */
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Vibrant cyan/teal primary - slightly darker for light mode */
+    --primary: 189 94% 40%;         /* cyan - darker for contrast */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 189 94% 50%;
+
+    /* Purple secondary */
+    --secondary: 271 81% 50%;       /* purple - adjusted */
+    --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 271 91% 60%;
+
+    /* Pink/Rose accent */
+    --accent: 348 83% 45%;          /* pink */
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 348 83% 55%;
+
+    /* Amber highlight */
+    --highlight: 38 92% 50%;
+    --highlight-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96%;           /* light muted */
+    --muted-foreground: 215 16% 40%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;          /* light border */
+    --input: 214 32% 95%;           /* light input */
+    --ring: 189 94% 43%;
+
+    /* Glassmorphism for light mode */
+    --glass-bg: hsla(0, 0%, 100%, 0.7);
+    --glass-border: hsla(222, 47%, 11%, 0.1);
+
+    /* Glow effects adjusted for light mode */
+    --glow-primary: 0 0 30px hsl(189 94% 43% / 0.3);
+    --glow-secondary: 0 0 30px hsl(271 81% 56% / 0.3);
+    --glow-accent: 0 0 30px hsl(348 83% 47% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Engineering typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-foreground;
+  }
+
+  code, pre {
+    font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    @apply rounded-xl p-6 transition-all duration-300;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .dark .glass-card:hover {
+    background: hsla(217, 33%, 20%, 0.8);
+    border-color: hsla(210, 40%, 98%, 0.2);
+  }
+
+  .light .glass-card:hover {
+    background: hsla(0, 0%, 95%, 0.9);
+    border-color: hsla(222, 47%, 11%, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Enhanced card with gradient border */
+  .card-gradient {
+    @apply rounded-xl p-6 relative overflow-hidden transition-all duration-300;
+    border: 1px solid hsl(217 33% 25%);
+  }
+
+  .dark .card-gradient {
+    background: linear-gradient(135deg, hsl(217 33% 17%) 0%, hsl(222 47% 15%) 100%);
+  }
+
+  .light .card-gradient {
+    background: linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(210 40% 99%) 100%);
+    border: 1px solid hsl(214 32% 88%);
+  }
+
+  .card-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    background: var(--gradient-primary);
+    border-radius: inherit;
+    opacity: 0.5;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
+    transition: opacity 0.3s ease;
+  }
+
+  .card-gradient:hover::before {
+    opacity: 1;
+  }
+
+  .card-gradient:hover {
+    transform: translateY(-4px);
+  }
+
+  .dark .card-gradient:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .light .card-gradient:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Gradient text effects */
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-secondary {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-accent {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Hero button with glow */
+  .btn-hero {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden;
+    box-shadow: var(--glow-primary);
+  }
+
+  .btn-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .btn-hero:hover::before {
+    opacity: 1;
+  }
+
+  .btn-hero:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 40px hsl(189 94% 43% / 0.6);
+  }
+
+  /* Badge components with gradients */
+  .badge-tech {
+    @apply bg-primary/10 text-primary border border-primary/30 px-3 py-1 rounded-full text-sm font-medium transition-all duration-300;
+  }
+
+  .badge-tech:hover {
+    @apply bg-primary/20 border-primary/50 scale-105;
+  }
+
+  .badge-secondary {
+    @apply bg-secondary/10 text-secondary border border-secondary/30 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-accent {
+    @apply bg-accent/10 text-accent border border-accent/30 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  /* Scroll reveal animation */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: reveal 0.6s ease-out forwards;
+  }
+
+  @keyframes reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Gradient background overlay */
+  .gradient-overlay {
+    position: relative;
+  }
+
+  .gradient-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-multi);
+    opacity: 0.05;
+    pointer-events: none;
+  }
+}
