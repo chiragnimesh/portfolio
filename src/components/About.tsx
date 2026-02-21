@@ -8,8 +8,17 @@ const About = () => {
   const { ref: cardsRef, isVisible: cardsVisible } = useScrollReveal({ threshold: 0.2 });
 
   return (
-    <section id="about" className="py-20 px-4 lg:px-8">
-      <div className="container mx-auto max-w-6xl">
+    <section id="about" className="relative py-10 px-4 lg:px-8 overflow-hidden">
+      {/* Orbit Animation - absolute right edge */}
+      <div 
+        className={`absolute -right-20 -top-10 -bottom-10 w-[700px] lg:w-[900px] transition-all duration-1000 delay-500 ${
+          cardsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+        }`}
+      >
+        <StackFeatureSection />
+      </div>
+
+      <div className="container mx-auto max-w-6xl relative z-10">
         <div 
           ref={titleRef}
           className={`text-center mb-16 transition-all duration-1000 ${
@@ -22,7 +31,7 @@ const About = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 items-start lg:max-w-[70%]">
           {/* Left side - Who I Am */}
           <div 
             ref={contentRef}
@@ -41,7 +50,7 @@ const About = () => {
             </p>
           </div>
 
-          {/* Middle - Cards */}
+          {/* Right side - Cards */}
           <div 
             ref={cardsRef}
             className="space-y-4"
@@ -102,15 +111,6 @@ const About = () => {
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Right side - Orbit Animation */}
-          <div 
-            className={`h-80 lg:h-96 transition-all duration-1000 delay-500 ${
-              cardsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-            }`}
-          >
-            <StackFeatureSection />
           </div>
         </div>
       </div>
