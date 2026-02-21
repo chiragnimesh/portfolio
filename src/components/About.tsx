@@ -11,7 +11,7 @@ const About = () => {
     <section id="about" className="relative py-10 px-4 lg:px-8 overflow-hidden">
       {/* Orbit Animation - absolute right edge */}
       <div 
-        className={`absolute -right-20 -top-10 -bottom-10 w-[700px] lg:w-[900px] transition-all duration-1000 delay-500 ${
+        className={`absolute right-0 top-0 bottom-0 w-[500px] lg:w-[600px] transition-all duration-1000 delay-500 ${
           cardsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
         }`}
       >
