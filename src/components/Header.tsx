@@ -126,7 +126,7 @@ const Header = () => {
                   onClick={() => scrollToSection(item.href)}
                   className={cn(
                     'font-medium transition-all duration-300 rounded-full',
-                    'hover:bg-background/60 hover:backdrop-blur-md hover:-translate-y-1',
+                     'hover:bg-foreground/10 dark:hover:bg-foreground/20 hover:backdrop-blur-md hover:-translate-y-1',
                     scrollStage === 'initial' && 'text-base px-4 py-2',
                     scrollStage === 'mid' && 'text-base px-3 py-1.5',
                     scrollStage === 'full' && 'text-sm px-2.5 py-1.5',
