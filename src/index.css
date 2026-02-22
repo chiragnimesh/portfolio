@@ -85,53 +85,53 @@ All colors MUST be HSL. */
 
   /* Light mode theme */
   .light {
-    /* Light backgrounds */
-    --background: 0 0% 100%;        /* white */
-    --foreground: 222 47% 11%;      /* dark navy text */
+    /* Warm off-white backgrounds */
+    --background: 40 20% 96%;        /* warm cream off-white */
+    --foreground: 222 47% 11%;
 
-    --card: 0 0% 98%;               /* light gray card */
+    --card: 40 15% 93%;              /* warm light card */
     --card-foreground: 222 47% 11%;
 
-    --popover: 0 0% 100%;
+    --popover: 40 18% 95%;
     --popover-foreground: 222 47% 11%;
 
-    /* Vibrant cyan/teal primary - slightly darker for light mode */
-    --primary: 189 94% 40%;         /* cyan - darker for contrast */
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 189 94% 50%;
+    /* Vibrant cyan/teal primary */
+    --primary: 189 94% 38%;
+    --primary-foreground: 40 20% 96%;
+    --primary-glow: 189 94% 48%;
 
     /* Purple secondary */
-    --secondary: 271 81% 50%;       /* purple - adjusted */
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 271 81% 50%;
+    --secondary-foreground: 40 20% 96%;
     --secondary-glow: 271 91% 60%;
 
     /* Pink/Rose accent */
-    --accent: 348 83% 45%;          /* pink */
-    --accent-foreground: 0 0% 100%;
+    --accent: 348 83% 45%;
+    --accent-foreground: 40 20% 96%;
     --accent-glow: 348 83% 55%;
 
     /* Amber highlight */
     --highlight: 38 92% 50%;
-    --highlight-foreground: 0 0% 100%;
+    --highlight-foreground: 40 20% 96%;
 
-    --muted: 210 40% 96%;           /* light muted */
+    --muted: 40 12% 90%;
     --muted-foreground: 215 16% 40%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 40 20% 96%;
 
-    --border: 214 32% 91%;          /* light border */
-    --input: 214 32% 95%;           /* light input */
+    --border: 40 15% 85%;
+    --input: 40 15% 91%;
     --ring: 189 94% 43%;
 
     /* Glassmorphism for light mode */
-    --glass-bg: hsla(0, 0%, 100%, 0.7);
-    --glass-border: hsla(222, 47%, 11%, 0.1);
+    --glass-bg: hsla(40, 20%, 96%, 0.75);
+    --glass-border: hsla(222, 47%, 11%, 0.08);
 
     /* Glow effects adjusted for light mode */
-    --glow-primary: 0 0 30px hsl(189 94% 43% / 0.3);
-    --glow-secondary: 0 0 30px hsl(271 81% 56% / 0.3);
-    --glow-accent: 0 0 30px hsl(348 83% 47% / 0.3);
+    --glow-primary: 0 0 30px hsl(189 94% 43% / 0.25);
+    --glow-secondary: 0 0 30px hsl(271 81% 56% / 0.25);
+    --glow-accent: 0 0 30px hsl(348 83% 47% / 0.25);
   }
 }
 
@@ -143,6 +143,11 @@ All colors MUST be HSL. */
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  html.light body {
+    background-image: radial-gradient(hsl(222 47% 11% / 0.06) 1px, transparent 1px);
+    background-size: 22px 22px;
   }
 
   /* Engineering typography */
