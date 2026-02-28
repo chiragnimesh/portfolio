@@ -9,7 +9,7 @@ const TrustedBy = () => {
             Trusted by experts.
           </span>
           <br />
-          <span>Used by the leaders.</span>
+          <span>Used by the professionals.</span>
         </div>
 
         <div className="mt-14 grid grid-cols-5 text-foreground">

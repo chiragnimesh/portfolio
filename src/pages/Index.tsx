@@ -54,7 +54,7 @@ const Index = () => {
       <main>
         <section id="home">
           <FloatingIconsHero
-            title="Chirag Singla"
+            title="Chirag"
             subtitle="Full Stack Developer crafting innovative digital experiences with modern technologies and creative solutions"
             ctaText="View My Work"
             ctaHref="#projects"

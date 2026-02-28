@@ -32,7 +32,7 @@ const Footer = () => {
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="mailto:chirag@example.com"
+                href="mailto:chinim591@gmail.com"
                 className="p-2 rounded-lg bg-background hover:bg-primary hover:text-primary-foreground transition-colors"
                 aria-label="Email"
               >
@@ -60,7 +60,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-foreground mb-4">Services</h4>
             <ul className="space-y-2">
-              {['Web Development', 'Mobile Development', 'UI/UX Design', 'API Development', 'Cloud Solutions', 'Consulting'].map((service) => (
+              {['Web Development', 'Mobile Development', 'Microservices', 'API Development', 'RAG development', 'AI solutions'].map((service) => (
                 <li key={service} className="text-muted-foreground">
                   {service}
                 </li>
